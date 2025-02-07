@@ -1,7 +1,7 @@
 import React from 'react';
 import { View, Text, StyleSheet, Image, ScrollView, TouchableOpacity } from 'react-native';
 import { Linking } from 'react-native';
-import Icon from 'react-native-vector-icons/FontAwesome'; // Certifique-se de instalar esta biblioteca
+import Icon from 'react-native-vector-icons/FontAwesome';
 
 const AboutScreen: React.FC = () => {
   const openLinkedIn = () => {
@@ -93,7 +93,7 @@ const styles = StyleSheet.create({
   },
   buttonContainer: {
     flexDirection: 'row',
-    justifyContent: 'space-around',
+    justifyContent: 'center',
     width: '80%',
   },
   button: {
@@ -101,18 +101,17 @@ const styles = StyleSheet.create({
     paddingVertical: 12,
     paddingHorizontal: 24,
     borderRadius: 8,
-    flexDirection: 'row', // Alinha ícone e texto horizontalmente
-    alignItems: 'center', // Alinha verticalmente no centro
+    flexDirection: 'row',
+    alignItems: 'center',
+    marginHorizontal: 5,
   },
   buttonText: {
     color: 'white',
     fontSize: 16,
     fontWeight: 'bold',
-    marginLeft: 8, // Espaço entre o ícone e o texto
+    marginLeft: 8,
   },
-  buttonIcon: {
-    // Estilo para o ícone (opcional, mas útil para ajustes)
-  },
+  buttonIcon: {},
 });
 
 export default AboutScreen;
