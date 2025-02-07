@@ -149,7 +149,7 @@ const TodoScreen: React.FC = () => {
             onChangeText={(text) => setTaskText(text)}
             />
             <Pressable
-            style={({ hovered }) => [styles.addButton, { backgroundColor: hovered ? '#006400' : addBtnColor }]}
+            style={({ hovered }) => [styles.addButton, { backgroundColor: hovered ? '#006400' : addBtnColor }, styles.addButtonAligned]}
             onHoverIn={() => setAddBtnHovered(true)}
             onHoverOut={() => setAddBtnHovered(false)}
             onPress={addTask}
@@ -176,6 +176,8 @@ const styles = StyleSheet.create({
     inputContainer: {
         flexDirection: 'row',
         marginBottom: 20,
+        alignItems: 'center',
+        justifyContent: 'flex-start',
     },
     title: {
         fontSize: 24,
@@ -186,7 +188,7 @@ const styles = StyleSheet.create({
 
     },
     input: {
-        flex: 1,
+        flex: 1, 
         borderWidth: 1,
         borderColor: '#A0522D',
         padding: 10,
@@ -244,6 +246,9 @@ const styles = StyleSheet.create({
         color: 'white',
         fontWeight: 'bold'
     },
+    addButtonAligned:{
+      alignSelf: 'stretch'
+    }
 
     });
 
