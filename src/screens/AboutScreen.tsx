@@ -1,7 +1,17 @@
 import React from 'react';
-import { View, Text, StyleSheet, Image, ScrollView } from 'react-native';
+import { View, Text, StyleSheet, Image, ScrollView, TouchableOpacity } from 'react-native';
+import { Linking } from 'react-native';
+import Icon from 'react-native-vector-icons/FontAwesome'; // Certifique-se de instalar esta biblioteca
 
 const AboutScreen: React.FC = () => {
+  const openLinkedIn = () => {
+    Linking.openURL('https://www.linkedin.com/in/richard-roque-silva/');
+  };
+
+  const openGitHub = () => {
+    Linking.openURL('https://github.com/RichardRoqueSilva');
+  };
+
   return (
     <ScrollView contentContainerStyle={styles.scrollContainer}>
       <View style={styles.container}>
@@ -20,6 +30,16 @@ const AboutScreen: React.FC = () => {
               source={require('../../assets/images/agenda.png')}
             />
           </View>
+          <View style={styles.buttonContainer}>
+            <TouchableOpacity style={styles.button} onPress={openLinkedIn}>
+              <Icon name="linkedin" size={20} color="white" style={styles.buttonIcon} />
+              <Text style={styles.buttonText}>LinkedIn</Text>
+            </TouchableOpacity>
+            <TouchableOpacity style={styles.button} onPress={openGitHub}>
+              <Icon name="github" size={20} color="white" style={styles.buttonIcon} />
+              <Text style={styles.buttonText}>GitHub</Text>
+            </TouchableOpacity>
+          </View>
         </View>
       </View>
     </ScrollView>
@@ -28,34 +48,35 @@ const AboutScreen: React.FC = () => {
 
 const styles = StyleSheet.create({
   scrollContainer: {
-    flexGrow: 1, // Permite que o conteúdo cresça e role
+    flexGrow: 1,
   },
   container: {
     flex: 1,
     padding: 20,
-    backgroundColor: '#D2B48C', // Marrom claro (Tan)
+    backgroundColor: '#D2B48C',
   },
   contentContainer: {
-    flexDirection: 'column', // Alterado para 'column'
+    flexDirection: 'column',
     alignItems: 'center',
-    justifyContent: 'flex-start', // Alterado para 'flex-start'
+    justifyContent: 'flex-start',
     marginTop: 40,
     paddingHorizontal: 30,
   },
   textContainer: {
-    width: '100%', // Ocupa a largura total
-    marginBottom: 20, // Adiciona espaço abaixo do texto
-    alignItems: 'center',  // Centraliza o texto
+    width: '100%',
+    marginBottom: 20,
+    alignItems: 'center',
   },
   imageContainer: {
     alignItems: 'center',
+    marginBottom: 20,
   },
   image: {
-    width: 400*0.8,
-    height: 400*0.8,
+    width: 400 * 0.8,
+    height: 400 * 0.8,
   },
   description: {
-    textAlign: 'center',   //Centraliza o texto
+    textAlign: 'center',
     lineHeight: 40,
     marginBottom: 10,
     marginTop: 1,
@@ -67,8 +88,30 @@ const styles = StyleSheet.create({
     fontSize: 32,
   },
   highlightedText: {
-    fontWeight: 'bold', // Negrito
-    color: '#8B4513', // Marrom escuro (Chocolate)
+    fontWeight: 'bold',
+    color: '#8B4513',
+  },
+  buttonContainer: {
+    flexDirection: 'row',
+    justifyContent: 'space-around',
+    width: '80%',
+  },
+  button: {
+    backgroundColor: '#8B4513',
+    paddingVertical: 12,
+    paddingHorizontal: 24,
+    borderRadius: 8,
+    flexDirection: 'row', // Alinha ícone e texto horizontalmente
+    alignItems: 'center', // Alinha verticalmente no centro
+  },
+  buttonText: {
+    color: 'white',
+    fontSize: 16,
+    fontWeight: 'bold',
+    marginLeft: 8, // Espaço entre o ícone e o texto
+  },
+  buttonIcon: {
+    // Estilo para o ícone (opcional, mas útil para ajustes)
   },
 });
 
