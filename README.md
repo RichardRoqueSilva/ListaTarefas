@@ -9,10 +9,11 @@ Este é um aplicativo simples de lista de tarefas (To-Do List) desenvolvido em R
 -   **Marcar como concluída:** Marque/desmarque uma tarefa como concluída.
 -   **Remover tarefas:** Exclua uma tarefa da lista.
 -   **Persistência de dados:** As tarefas são salvas e carregadas usando AsyncStorage, garantindo que persistam entre as sessões.
--   **Estilização básica:** Interface agradável e funcional.
+-   **Estilização básica:** Interface agradável, funcional e responsiva.
 -   **Consumo de API:** Integração com uma API pública (JSONPlaceholder) para exibir uma lista inicial de tarefas.
 -  **Validação:** Impossibilita salvar 2 tarefas com o mesmo texto.
 -  **Alerta de campo vazio:** Apresenta mensagem de alerta caso usuário tente salvar uma tarefa com campo vazio.
+-  **About:** Descreve a utilidade da aplicação, de forma clara para o usuário. Dentro do About.
 
 ## Tecnologias Utilizadas
 
@@ -46,16 +47,12 @@ Antes de começar, você precisará ter instalado:
 
     ```bash
     npm install
-    # ou
-    yarn install
     ```
 
 3.  **Inicie o aplicativo com Expo:**
 
     ```bash
     npm start
-    # ou
-    yarn start
     ```
 
 4.  **Escolha como executar o aplicativo:**

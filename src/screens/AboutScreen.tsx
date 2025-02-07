@@ -51,8 +51,8 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   image: {
-    width: 400,
-    height: 400,
+    width: 400*0.8,
+    height: 400*0.8,
   },
   description: {
     textAlign: 'center',   //Centraliza o texto
