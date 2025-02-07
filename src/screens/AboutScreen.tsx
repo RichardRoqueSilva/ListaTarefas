@@ -1,9 +1,12 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { View, Text, StyleSheet, Image, ScrollView, TouchableOpacity } from 'react-native';
-import { Linking } from 'react-native';
+import { Linking, Pressable } from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome';
 
 const AboutScreen: React.FC = () => {
+  const [linkedinHovered, setLinkedinHovered] = useState(false);
+  const [githubHovered, setGithubHovered] = useState(false);
+
   const openLinkedIn = () => {
     Linking.openURL('https://www.linkedin.com/in/richard-roque-silva/');
   };
@@ -31,14 +34,30 @@ const AboutScreen: React.FC = () => {
             />
           </View>
           <View style={styles.buttonContainer}>
-            <TouchableOpacity style={styles.button} onPress={openLinkedIn}>
-              <Icon name="linkedin" size={20} color="white" style={styles.buttonIcon} />
-              <Text style={styles.buttonText}>LinkedIn</Text>
-            </TouchableOpacity>
-            <TouchableOpacity style={styles.button} onPress={openGitHub}>
-              <Icon name="github" size={20} color="white" style={styles.buttonIcon} />
-              <Text style={styles.buttonText}>GitHub</Text>
-            </TouchableOpacity>
+          <Pressable
+          style={({ hovered }) => [
+            styles.button,
+            { backgroundColor: hovered ? '#5a3220' : '#8B4513' }
+          ]}
+          onHoverIn={() => setLinkedinHovered(true)}
+          onHoverOut={() => setLinkedinHovered(false)}
+          onPress={openLinkedIn}
+          >
+          <Icon name="linkedin" size={20} color="white" style={styles.buttonIcon} />
+          <Text style={styles.buttonText}>LinkedIn</Text>
+          </Pressable>
+          <Pressable
+            style={({ hovered }) => [
+              styles.button,
+              { backgroundColor: hovered ? '#5a3220' : '#8B4513' }
+            ]}
+            onHoverIn={() => setLinkedinHovered(true)}
+            onHoverOut={() => setLinkedinHovered(false)}
+            onPress={openLinkedIn}
+          >
+            <Icon name="github" size={20} color="white" style={styles.buttonIcon} />
+            <Text style={styles.buttonText}>GitHub</Text>
+          </Pressable>
           </View>
         </View>
       </View>
@@ -97,7 +116,6 @@ const styles = StyleSheet.create({
     width: '80%',
   },
   button: {
-    backgroundColor: '#8B4513',
     paddingVertical: 12,
     paddingHorizontal: 24,
     borderRadius: 8,
