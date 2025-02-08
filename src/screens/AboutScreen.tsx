@@ -51,9 +51,9 @@ const AboutScreen: React.FC = () => {
               styles.button,
               { backgroundColor: hovered ? '#5a3220' : '#8B4513' }
             ]}
-            onHoverIn={() => setLinkedinHovered(true)}
-            onHoverOut={() => setLinkedinHovered(false)}
-            onPress={openLinkedIn}
+            onHoverIn={() => setGithubHovered(true)}
+            onHoverOut={() => setGithubHovered(false)}
+            onPress={openGitHub}
           >
             <Icon name="github" size={20} color="white" style={styles.buttonIcon} />
             <Text style={styles.buttonText}>GitHub</Text>
